@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 162: Module 3 Programming Project</title>
+<style>* { font-family: monospace; }</style>
+<script>
+
+//---------//
+// Strings //
+//---------//
+console.log("Strings");
+
+// 1. Make all countries in the following array follow the same formatting:
+//    The first letter should be upper case, the rest lower case. Print the
+//    result to the console.
+const countries = ["ALBANIA", "BOLIVIA", "CANADA", "DENMARK", "ETHIOPIA",
+                   "FINLAND", "GERMANY", "HUNGARY", "IRELAND", "JAPAN",
+                   "KENYA"];
+
+
+console.log(formattedCountries);
+const formattedCountries = countries.map(country => {
+  // Convert the country name to lower case and then capitalize the first letter
+  const formattedName = country.toLowerCase().replace(/^\w/, c => c.toUpperCase());
+  return formattedName;
+});
+
+var countries = ["AustraliA", "greece", "PERU", "ChInA"];
+
+// 2. Get every second and third letter from each country and concatenate them.
+//    Print the results to the console.
+const concatenatedLetters = countries.map(country => {
+  let letters = "";
+  for (let i = 1; i < country.length; i += 2) {
+    letters += country[i];
+    if (i + 1 < country.length) {
+      letters += country[i + 1];
+    }
+  }
+  return letters;
+});
+
+console.log(concatenatedLetters);
+// 3. In the sentence below replace 'dart' with 'arrow' by using the indexOf
+//    and slice functions.
+let sentence = "I'm learning to program in dart!";
+let modifiedSentence = sentence.slice(0, sentence.indexOf("dart")) + "arrow" + sentence.slice(sentence.indexOf("dart") + 4);
+console.log(modifiedSentence);
+var sentence = "Time flies like an dart; fruit flies like a banana.";
+
+// 4. Find the index of the last occurrence of flies in sentence.
+const lastIndex = sentence.lastIndexOf('flies');
+console.log(lastIndex);
+// 5. Prompt the user for a string, reverse it, and show the result to the user.
+const userInput = prompt('Enter a string to reverse:');
+const reversedString = userInput.split('').reverse().join('');
+console.log(reversedString);
+
+
+//---------//
+// Numbers //
+//---------//
+console.log("Numbers");
+
+// Use the following variable to answer the next questions.
+
+var value = 13.3;
+
+// 1. Round the value using normal math rules.
+console.log(Math.round(value));
+// 2. Round the value up.
+console.log(Math.ceil(value));
+// 3. Round the value down.
+console.log(Math.floor(value));
+// 4. Simulate a coin flip by generating a random number. Assume the coin is
+//    fair and print the result, heads or tails, to the console.
+const randomNum = Math.random();
+if (randomNum < 0.5) {
+  console.log("Heads");
+} else {
+  console.log("Tails");
+}
+
+
+//-------//
+// Dates //
+//-------//
+console.log("Dates");
+
+// 1. Prompt the user for their age and proceed to show in what year they
+//    were born (you can assume they already had their birthday in the current
+//    year).
+const age = prompt("What is your age?");
+const currentYear = new Date().getFullYear();
+const birthYear = currentYear - age;
+console.log(`You were born in ${birthYear}.`);
+
+// 2. Make a program that does the following: (1) Use a prompt to obtain the
+//    birth year of the user. (2) Use a prompt to obtain the birth month of
+//    the user. (3) Use a prompt to obtain the birth day of the user.
+//    (4) Calculate how old the user is in days. (5) Show the result to
+//    the user.
+const birthYear = prompt("What year were you born in?");
+const birthMonth = prompt("What month were you born in? (Enter a number from 1-12)");
+const birthDay = prompt("What day of the month were you born on?");
+const birthDate = new Date(`${birthYear}-${birthMonth}-${birthDay}`);
+const currentDate = new Date();
+const timeDiff = Math.abs(currentDate.getTime() - birthDate.getTime());
+const daysOld = Math.ceil(timeDiff / (1000 * 3600 * 24));
+console.log(`You are ${daysOld} days old.`);
+
+
+</script>
+</head>
+<body>
+  See console!
+</body>
+</html>
